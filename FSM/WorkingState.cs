@@ -22,11 +22,13 @@ namespace FSM
             if (entity.Tiredness >= 100)
             {
                 entity.StateMachine.ChangeState(RestingState.Instance);
+                return;
             }
 
             if (entity.Boredom >= 100 && entity.MoneyInPocket >= 25)
             {
                 entity.StateMachine.ChangeState(HavingBeersState.Instance);
+                return;
             }
 
             if (entity.Boredom >= 100 && entity.MoneyInPocket < 25)

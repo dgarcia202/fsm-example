@@ -17,12 +17,20 @@
         {
             Console.WriteLine("One more beer!");
 
-            entity.Boredom -= 12;
+            if (entity.MoneyInPocket < 18)
+            {
+                Console.WriteLine("Oh! no tengo dinero");
+                entity.StateMachine.ChangeState(WorkingState.Instance);
+                return;
+            }
+
+            entity.Boredom -= 60;
             entity.MoneyInPocket -= 18;
 
             if (entity.Tiredness >= 100)
             {
                 entity.StateMachine.ChangeState(RestingState.Instance);
+                return;
             }
 
             if (entity.Boredom <= 0 || entity.MoneyInPocket < 18)

@@ -23,16 +23,6 @@ namespace FSM
             {
                 entity.StateMachine.RevertToPreviousState();
             }
-
-            if (entity.Boredom >= 100 && entity.MoneyInPocket >= 25)
-            {
-                entity.StateMachine.ChangeState(HavingBeersState.Instance);
-            }
-
-            if (entity.Boredom >= 100 && entity.MoneyInPocket < 25)
-            {
-                entity.StateMachine.ChangeState(GettingCashState.Instance);
-            }
         }
     }
 }
